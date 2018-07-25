@@ -1,12 +1,12 @@
 /*
- ¹¦ÄÜ½éÉÜ
- ÔÚÉèÖÃ²Î¿¼Í¼Æ¬¹¦ÄÜµÄ»ù´¡ÉÏÔö¼ÓµÇÂ¼¹¦ÄÜ
- Èç¹ûÓÃ»§Ö®Ç°ÒÑ¾­µÇÂ¼¹ıÔòÖ±½Ó¿ªÊ¼Ê¹ÓÃ
- ÈôÎ´µÇÂ¼¹ıÔòĞèÒªÊ×ÏÈµÇÂ¼
- ²âÊÔµÄ²å¼şÃû³ÆÎªtestPlugin1
+ åŠŸèƒ½ä»‹ç»
+ åœ¨è®¾ç½®å‚è€ƒå›¾ç‰‡åŠŸèƒ½çš„åŸºç¡€ä¸Šå¢åŠ ç™»å½•åŠŸèƒ½
+ å¦‚æœç”¨æˆ·ä¹‹å‰å·²ç»ç™»å½•è¿‡åˆ™ç›´æ¥å¼€å§‹ä½¿ç”¨
+ è‹¥æœªç™»å½•è¿‡åˆ™éœ€è¦é¦–å…ˆç™»å½•
+ æµ‹è¯•çš„æ’ä»¶åç§°ä¸ºtestPlugin1
 */
  MacroScript MiaoMiaoXue2
-Tooltip:"ÉèÖÃ²Î¿¼Í¼Æ¬"
+Tooltip:"è®¾ç½®å‚è€ƒå›¾ç‰‡"
 category:"MiaoMiaoXue_Tool2"
 (
 	global objectLength
@@ -28,7 +28,7 @@ category:"MiaoMiaoXue_Tool2"
 	(
 		planesArray = #(topPlane, bottomPlane, frontPlane, backPlane, leftPlane, rightPlane)
 	
-		--È·¶¨ÊÓÍ¼ÄÚÒÑÓĞµÄ¸÷¸ö·½ÏòÆ½ÃæµÄÊıÁ¿ ĞÂ´´½¨µÄÊ±ºònumber+1
+		--ç¡®å®šè§†å›¾å†…å·²æœ‰çš„å„ä¸ªæ–¹å‘å¹³é¢çš„æ•°é‡ æ–°åˆ›å»ºçš„æ—¶å€™number+1
 		existingTopPlanes = (fn_findPlane "XX_BP_TOP_*").count
 		existingBottomPlanes = (fn_findPlane "XX_BP_BOTTOM_*").count
 		existingFrontPlanes = (fn_findPlane "XX_BP_FRONT_*").count
@@ -47,65 +47,65 @@ category:"MiaoMiaoXue_Tool2"
 				tempMapHeight = tempMap.height
 				ratio = tempMapWidth/tempMapHeight
 				
-				--ÓĞÈı¸öÖµ
-				--³¤¿í¸ß¶¼ÓĞÖµ
+				--æœ‰ä¸‰ä¸ªå€¼
+				--é•¿å®½é«˜éƒ½æœ‰å€¼
 				if objectLength != undefined then objectLength = objectLength as float
 				if objectWidth != undefined then objectWidth = objectWidth as float
 				if objectHeight != undefined then objectHeight = objectHeight as float
 			
 				
-				--Ö»ÓĞÒ»¸öÖµ 
+				--åªæœ‰ä¸€ä¸ªå€¼ 
 				
-				--¶¥²¿ µ×²¿ÊÓÍ¼
-				--Ö»ÓĞ³¤¶È
+				--é¡¶éƒ¨ åº•éƒ¨è§†å›¾
+				--åªæœ‰é•¿åº¦
 				if objectLength !=undefined and objectWidth ==undefined and objectHeight ==undefined
 				    do objectWidth = objectLength * tempMapWidth/tempMapHeight
 				print objectWidth
-				--Ö»ÓĞ¿í¶È
+				--åªæœ‰å®½åº¦
 				if objectWidth !=undefined and objectLength == undefined and objectHeight ==undefined
 					do objectLength = objectWidth*tempMapHeight/tempMapWidth
 				
-				--×ó²à ÓÒ²àÊÓÍ¼
-				--Ö»ÓĞ¿í¶È
+				--å·¦ä¾§ å³ä¾§è§†å›¾
+				--åªæœ‰å®½åº¦
 				if objectWidth !=undefined and objectHeight ==undefined and objectLength ==undefined
 					do objectHeight = objectWidth * tempMapHeight/tempMapWidth
-				--Ö»ÓĞ¸ß¶È
+				--åªæœ‰é«˜åº¦
 				if objectHeight !=undefined and objectWidth == undefined and objectLength ==undefined
 					do objectWidth = objectHeight * tempMapWidth/tempMapHeight
 				
-				--Ç° ºóÊÓÍ¼
-				--Ö»ÓĞ¸ß¶È
+				--å‰ åè§†å›¾
+				--åªæœ‰é«˜åº¦
 				if objectHeight !=undefined and objectLength == undefined and objectWidth == undefined
 					do objectLength = objectHeight * tempMapWidth/tempMapHeight
-				--Ö»ÓĞ³¤¶È
+				--åªæœ‰é•¿åº¦
 				if objectLength !=undefined and objectHeight == undefined and objectWidth == undefined
 					do objectHeight = objectLength*tempMapHeight/tempMapWidth
 				
 				
-				--ÓĞÁ½¸öÖµ
-				--ÓĞ³¤¶È ¿í¶È ĞèÒªÔÚ×óÓÒÊÓÍ¼¡¢Ç°ºóÊÓÍ¼µÄÊ±ºòµÃµ½¸ß¶È
-				--×óÓÒÊÓÍ¼
+				--æœ‰ä¸¤ä¸ªå€¼
+				--æœ‰é•¿åº¦ å®½åº¦ éœ€è¦åœ¨å·¦å³è§†å›¾ã€å‰åè§†å›¾çš„æ—¶å€™å¾—åˆ°é«˜åº¦
+				--å·¦å³è§†å›¾
 				if objectLength !=undefined and objectWidth !=undefined and objectHeight == undefined and i==5 or i==6
 					do objectHeight = objectWidth * tempMapHeight/tempMapWidth
-				--Ç°ºóÊÓÍ¼
+				--å‰åè§†å›¾
 				if objectLength !=undefined and objectWidth !=undefined and objectHeight == undefined and i==3 or i==4
 					do objectHeight = objectLength * tempMapHeight/tempMapWidth
 				
 				
-				--ÓĞ³¤¶È ¸ß¶È  ĞèÒªÔÚ×óÓÒÊÓÍ¼¡¢¶¥µ×ÊÓÍ¼µÄÊ±ºòµÃµ½¿í¶È
-				--×óÓÒÊÓÍ¼
+				--æœ‰é•¿åº¦ é«˜åº¦  éœ€è¦åœ¨å·¦å³è§†å›¾ã€é¡¶åº•è§†å›¾çš„æ—¶å€™å¾—åˆ°å®½åº¦
+				--å·¦å³è§†å›¾
 				if objectLength !=undefined and objectHeight!=undefined and objectWidth == undefined and i==5 or i==6
 					do objectWidth = objectHeight * tempMapWidth/tempMapHeight
-				--¶¥µ×ÊÓÍ¼
+				--é¡¶åº•è§†å›¾
 				if objectLength !=undefined and objectHeight!=undefined and objectWidth == undefined and i==1 or i==2
 					do objectWidth = objectLength * tempMapWidth/tempMapHeight
 				
 				
-				--ÓĞ¿í¶È ¸ß¶È ĞèÒªÔÚÇ°ºóÊÓÍ¼¡¢¶¥µ×ÊÓÍ¼µÄÊ±ºòµÃµ½³¤¶È
-				--Ç°ºóÊÓÍ¼
+				--æœ‰å®½åº¦ é«˜åº¦ éœ€è¦åœ¨å‰åè§†å›¾ã€é¡¶åº•è§†å›¾çš„æ—¶å€™å¾—åˆ°é•¿åº¦
+				--å‰åè§†å›¾
 				if objectWidth !=undefined and objectHeight !=undefined and objectLength ==undefined and i==3 or i==4
 					do objectLength = objectHeight * tempMapWidth/tempMapHeight
-				--¶¥µ×ÊÓÍ¼
+				--é¡¶åº•è§†å›¾
 				if objectWidth !=undefined and objectHeight !=undefined and objectLength ==undefined and i==1 or i==2
 					do objectLength = objectWidth*tempMapHeight/tempMapWidth
 				
@@ -235,17 +235,17 @@ category:"MiaoMiaoXue_Tool2"
 
 	
 	
-			rollout rlt_planeCreation "Æ½Ãæ¹¹½¨"
+			rollout rlt_planeCreation "å¹³é¢æ„å»º"
 			(
-				group "3dÎïÌå³ß´ç"
+				group "3dç‰©ä½“å°ºå¯¸"
 				(
-					label lbl_objectLength "³¤:" align:#left  across:2
+					label lbl_objectLength "é•¿:" align:#left  across:2
 					edittext txt_objectLength "" width:195 offset:[-2,0] align:#right arcoss:2
 					
-					label lbl_objectWidth "¿í:" align:#left  across:2
+					label lbl_objectWidth "å®½:" align:#left  across:2
 					edittext  txt_objectWidth "" width:195 align:#right offset:[-2,0]  across:2
 					
-					label lbl_objectHeight "¸ß:" align:#left  across:2
+					label lbl_objectHeight "é«˜:" align:#left  across:2
 					edittext  txt_objectHeight "" width:195 align:#right offset:[-2,0]  across:2
 					
 					on txt_objectLength entered txt do(
@@ -262,34 +262,34 @@ category:"MiaoMiaoXue_Tool2"
 					)
 				)
 				
-				group "Ô´Í¼Æ¬"
+				group "æºå›¾ç‰‡"
 				(
-					label lbl_imgTop "¶¥ÊÓÍ¼: " align:#left
+					label lbl_imgTop "é¡¶è§†å›¾: " align:#left
 					edittext txt_imgTop "" width:195 align:#left offset:[-2,0] across:2
-					button btn_browseTop "ä¯ÀÀ" width:60 align:#right offset:[0,-2]
+					button btn_browseTop "æµè§ˆ" width:60 align:#right offset:[0,-2]
 
-					label lbl_imgBottom "µ×ÊÓÍ¼: " align:#left
+					label lbl_imgBottom "åº•è§†å›¾: " align:#left
 					edittext txt_imgBottom "" width:195 align:#left offset:[-2,0] across:2
-					button btn_browseBottom "ä¯ÀÀ" width:60 align:#right offset:[0,-2]
+					button btn_browseBottom "æµè§ˆ" width:60 align:#right offset:[0,-2]
 					
-					label lbl_imgFront "Ç°ÊÓÍ¼: " align:#left
+					label lbl_imgFront "å‰è§†å›¾: " align:#left
 					edittext txt_imgFront "" width:195 align:#left offset:[-2,0] across:2
-					button btn_browseFront "ä¯ÀÀ" width:60 align:#right offset:[0,-2]
+					button btn_browseFront "æµè§ˆ" width:60 align:#right offset:[0,-2]
 
-					label lbl_imgBack "ºóÊÓÍ¼: " align:#left
+					label lbl_imgBack "åè§†å›¾: " align:#left
 					edittext txt_imgBack "" width:195 align:#left offset:[-2,0] across:2
-					button btn_browseBack "ä¯ÀÀ" width:60 align:#right offset:[0,-2]
+					button btn_browseBack "æµè§ˆ" width:60 align:#right offset:[0,-2]
 					
-					label lbl_imgLeft "×óÊÓÍ¼: " align:#left
+					label lbl_imgLeft "å·¦è§†å›¾: " align:#left
 					edittext txt_imgLeft "" width:195 align:#left offset:[-2,0] across:2
-					button btn_browseLeft "ä¯ÀÀ" width:60 align:#right offset:[0,-2]
+					button btn_browseLeft "æµè§ˆ" width:60 align:#right offset:[0,-2]
 					
-					label lbl_imgRight "ÓÒÊÓÍ¼: " align:#left
+					label lbl_imgRight "å³è§†å›¾: " align:#left
 					edittext txt_imgRight "" width:195 align:#left offset:[-2,0] across:2
-					button btn_browseright "ä¯ÀÀ" width:60 align:#right offset:[0,-2]
+					button btn_browseright "æµè§ˆ" width:60 align:#right offset:[0,-2]
 				)
 
-				button btn_createPlanes "´´½¨Æ½Ãæ" width:278 height:40
+				button btn_createPlanes "åˆ›å»ºå¹³é¢" width:278 height:40
 				
 				on btn_browseTop pressed do
 				(
@@ -330,7 +330,7 @@ category:"MiaoMiaoXue_Tool2"
 				on btn_createPlanes pressed do
 				(
 					if objectLength ==undefined and objectWidth ==undefined and objectHeight==undefined
-						do (messagebox "ÇëÖÁÉÙÊäÈë³¤¶È¡¢¿í¶È¡¢¸ß¶ÈÖĞµÄÒ»¸ö";
+						do (messagebox "è¯·è‡³å°‘è¾“å…¥é•¿åº¦ã€å®½åº¦ã€é«˜åº¦ä¸­çš„ä¸€ä¸ª";
 						   return())
 					--existingPlanes = fn_findAllPlanes()
 					--if existingPlanes.count == 0 then
@@ -366,9 +366,9 @@ category:"MiaoMiaoXue_Tool2"
 		
 	)
 		
-	-----------------------------·Ö¸îÏß -------------------------------------	
-	--ÓÉ´Ë¿ªÊ¼ÎªÑéÖ¤µÇÂ¼´úÂë
-	--²å¼şÃû³Æ
+	-----------------------------åˆ†å‰²çº¿ -------------------------------------	
+	--ç”±æ­¤å¼€å§‹ä¸ºéªŒè¯ç™»å½•ä»£ç 
+	--æ’ä»¶åç§°
 	pluginName = "testPlugin1"
 	outstring=copy pluginName
 	nc = outstring.count
@@ -382,18 +382,18 @@ category:"MiaoMiaoXue_Tool2"
 	catch ()
 
 
-	--²ÉÓÃº¯ÊıcreateDialog ÊÇÎªÁËÔÚµÇÂ¼³É¹¦Ê±¹Ø±Õµ±Ç°µÇÂ¼´°¿Ú	
+	--é‡‡ç”¨å‡½æ•°createDialog æ˜¯ä¸ºäº†åœ¨ç™»å½•æˆåŠŸæ—¶å…³é—­å½“å‰ç™»å½•çª—å£	
 	fn makeDialog =
 	(
-	  rollout floater "µÇÂ¼ĞÅÏ¢"
+	  rollout floater "ç™»å½•ä¿¡æ¯"
 	  (
-		  label lbl_username "ÓÃ»§Ãû:" align:#left  across:2
+		  label lbl_username "ç”¨æˆ·å:" align:#left  across:2
 		edittext txt_username "" width:100 height:20  align:#right arcoss:2
 				
-		label lbl_password "ÃÜÂë:" align:#left  across:2
+		label lbl_password "å¯†ç :" align:#left  across:2
 		edittext  txt_password "" width:100 align:#right  across:2 
 		
-		button btn_loginBottom "µÇÂ¼" width:60 align:#center
+		button btn_loginBottom "ç™»å½•" width:60 align:#center
 		global objectUsername = ""
 		global objectPassword = ""
 
@@ -407,9 +407,9 @@ category:"MiaoMiaoXue_Tool2"
 				)
 			on btn_loginBottom pressed do
 			(
-			   --ÑéÖ¤µÇÂ¼ĞÅÏ¢ÊÇ·ñÕıÈ·
+			   --éªŒè¯ç™»å½•ä¿¡æ¯æ˜¯å¦æ­£ç¡®
 				result = fn_validateUser objectUsername objectPassword
-				--ÈôµÇÂ½³É¹¦Ôòµ¯³ö²å¼şÕı³£¹¦ÄÜ½çÃæ¹Ø±Õµ±Ç°µÇÂ¼´°¿Ú ·ñÔò¼ÌĞø³¢ÊÔµÇÂ¼
+				--è‹¥ç™»é™†æˆåŠŸåˆ™å¼¹å‡ºæ’ä»¶æ­£å¸¸åŠŸèƒ½ç•Œé¢å…³é—­å½“å‰ç™»å½•çª—å£ å¦åˆ™ç»§ç»­å°è¯•ç™»å½•
 				if result =="success" then (formalFunction() DestroyDialog floater) else (print "fail")
 			)
 	  )
@@ -418,17 +418,17 @@ category:"MiaoMiaoXue_Tool2"
 	)
 
 
-	--ÅĞ¶ÏÓÃ»§ÊÇ·ñĞèÒªÖØĞÂµÇÂ¼ÏµÍ³	ÒÔÈı¸öÔÂÎªÆÚÏŞ
+	--åˆ¤æ–­ç”¨æˆ·æ˜¯å¦éœ€è¦é‡æ–°ç™»å½•ç³»ç»Ÿ	ä»¥ä¸‰ä¸ªæœˆä¸ºæœŸé™
 	function fn_needLogin = (
-		--µÃµ½µ±Ç°ÔÂÈÕÄê
+		--å¾—åˆ°å½“å‰æœˆæ—¥å¹´
 		today= getLocalTime()
 		year = today[1] as float
 		month = today[2] as float
 		day = today[4] as float
-		--ÊÇ·ñ´æÔÚpluginName.plu -´æÔÚµÄ»°µÃµ½pluginName.pluµÄ´´½¨ÈÕÆÚ ²»´æÔÚµ¯³öµÇÂ¼½çÃæ
+		--æ˜¯å¦å­˜åœ¨pluginName.plu -å­˜åœ¨çš„è¯å¾—åˆ°pluginName.pluçš„åˆ›å»ºæ—¥æœŸ ä¸å­˜åœ¨å¼¹å‡ºç™»å½•ç•Œé¢
 		plugins = getFiles ((getDir #maxRoot)+"*.plu")
-		--±éÀúËùÓĞµÄ.pluÎÄ¼ş Èç¹û´æÔÚ¸úµ±Ç°µÄ²å¼şÃû³ÆÒ»ÑùµÄ²å¼şÔòµÃµ½ËûµÄ´´½¨ÈÕÆÚ ´´½¨ÈÕÆÚÎªÎÄ¼şÃû×îºó8Î» Èç¹û²»´æÔÚµ¯³öµÇÂ¼´°¿Ú
-		--maxscriptÓĞÒ»¸ö×Ô´øµÄgetFileCreateDate ±È½Ïµõ¹îµÄÊÇÔÚ´´½¨ÁËÒ»¸öÎÄ¼şºó1.5Ğ¡Ê±ÄÚ²»ÄÜ·ÃÎÊ ²»ÖªµÀÎªÊ²Ã´
+		--éå†æ‰€æœ‰çš„.pluæ–‡ä»¶ å¦‚æœå­˜åœ¨è·Ÿå½“å‰çš„æ’ä»¶åç§°ä¸€æ ·çš„æ’ä»¶åˆ™å¾—åˆ°ä»–çš„åˆ›å»ºæ—¥æœŸ åˆ›å»ºæ—¥æœŸä¸ºæ–‡ä»¶åæœ€å8ä½ å¦‚æœä¸å­˜åœ¨å¼¹å‡ºç™»å½•çª—å£
+		--maxscriptæœ‰ä¸€ä¸ªè‡ªå¸¦çš„getFileCreateDate æ¯”è¾ƒåŠè¯¡çš„æ˜¯åœ¨åˆ›å»ºäº†ä¸€ä¸ªæ–‡ä»¶å1.5å°æ—¶å†…ä¸èƒ½è®¿é—® ä¸çŸ¥é“ä¸ºä»€ä¹ˆ
 		for f in plugins do
 		 (
 				file = filenameFromPath   f
@@ -452,49 +452,49 @@ category:"MiaoMiaoXue_Tool2"
 	  
 		
 		--createDate = "3/12/2018 1:20:45 AM"
-		--µÃµ½´´½¨ÈÕÆÚµÄÔÂÈÕÄê
+		--å¾—åˆ°åˆ›å»ºæ—¥æœŸçš„æœˆæ—¥å¹´
 
 		oldMonth = oldMonth as float
 		oldDay = oldDay as float
 		oldYear = oldYear as float
-		--ÅĞ¶Ï Èç¹û´´½¨ÈÕÆÚ¸úµ±Ç°ÈÕÆÚÏà²î3¸öÔÂ¼°ÒÔÉÏÔòÒªÖØĞÂµÇÂ¼ÏµÍ³		
+		--åˆ¤æ–­ å¦‚æœåˆ›å»ºæ—¥æœŸè·Ÿå½“å‰æ—¥æœŸç›¸å·®3ä¸ªæœˆåŠä»¥ä¸Šåˆ™è¦é‡æ–°ç™»å½•ç³»ç»Ÿ		
 		if (year - oldYear)>0 
 				do (
-					messagebox "ÄúµÄµÇÂ¼ĞÅÏ¢ÒÑ¹ıÆÚ£¬ÇëÖØĞÂµÇÂ¼";
+					messagebox "æ‚¨çš„ç™»å½•ä¿¡æ¯å·²è¿‡æœŸï¼Œè¯·é‡æ–°ç™»å½•";
 					makeDialog()
 					return false
 					   )
 		if(year == oldYear and (month-oldMonth)>3)
 						   do (
-						messagebox "ÄúµÄµÇÂ¼ĞÅÏ¢ÒÑ¹ıÆÚ£¬ÇëÖØĞÂµÇÂ¼";
+						messagebox "æ‚¨çš„ç™»å½•ä¿¡æ¯å·²è¿‡æœŸï¼Œè¯·é‡æ–°ç™»å½•";
 						makeDialog()
 						return false
 						   )
 		if(year == oldYear and month-oldMonth==3 and day>=oldDay)
 							 do (
-						messagebox "ÄúµÄµÇÂ¼ĞÅÏ¢ÒÑ¹ıÆÚ£¬ÇëÖØĞÂµÇÂ¼";
+						messagebox "æ‚¨çš„ç™»å½•ä¿¡æ¯å·²è¿‡æœŸï¼Œè¯·é‡æ–°ç™»å½•";
 						makeDialog()
 						return false
 						   )
-		--µ¯³ö²å¼şÕı³£¹¦ÄÜ½çÃæ
+		--å¼¹å‡ºæ’ä»¶æ­£å¸¸åŠŸèƒ½ç•Œé¢
 		formalFunction()
 		
 		)
 		
 		
-	--ÅĞ¶ÏÓÃ»§ÃûÃÜÂëÊÇ·ñ´æÔÚÊı¾İ¿âÖĞ
+	--åˆ¤æ–­ç”¨æˆ·åå¯†ç æ˜¯å¦å­˜åœ¨æ•°æ®åº“ä¸­
 	function fn_validateUser username password= (
 		
 		if username=="" or password=="" then 
-			messagebox "ÇëÊäÈëÓÃ»§Ãû¸úÃÜÂëºóÔÙµÇÂ¼"
+			messagebox "è¯·è¾“å…¥ç”¨æˆ·åè·Ÿå¯†ç åå†ç™»å½•"
 		else  (
 			TestConn=createOLEObject "ADODB.Connection"
-			TestConn.Open "driver={MySQL ODBC 3.51 Driver}; server=42.62.8.123; database=assessonline;user=ducool;password=de87ao48c66a051c"
+			TestConn.Open "driver={MySQL ODBC 3.51 Driver}; server=; database=;user=;password="
 			recordSet = createOLEObject "ADODB.Recordset"
 			selectString = "SELECT * from tbook_maxusers where username='"+username+"' and password='"+password+"'"
 			recordSet.Open selectString TestConn -- Standard SQL Request in ""
 			
-			--ÈôÊı¾İ¿âÖĞ´æÔÚµ±Ç°ÊäÈëµÄÓÃ»§ÃûÃÜÂë Ôò´´½¨²å¼ş
+			--è‹¥æ•°æ®åº“ä¸­å­˜åœ¨å½“å‰è¾“å…¥çš„ç”¨æˆ·åå¯†ç  åˆ™åˆ›å»ºæ’ä»¶
 			try (
 				recordset.GetRows()
 				currentDate = (dotNetClass "System.DateTime").Now.ToString("yyyyMMdd")
@@ -504,7 +504,7 @@ category:"MiaoMiaoXue_Tool2"
 				return result
 				)
 			catch (
-				messagebox "ÓÃ»§ÃûÃÜÂë²»ÕıÈ·£¬µÇÂ¼Ê§°Ü"
+				messagebox "ç”¨æˆ·åå¯†ç ä¸æ­£ç¡®ï¼Œç™»å½•å¤±è´¥"
 				result = "fail"
 				return result
 				)
