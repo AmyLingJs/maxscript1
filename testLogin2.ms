@@ -491,7 +491,7 @@ category:"MiaoMiaoXue_Tool2"
 			TestConn=createOLEObject "ADODB.Connection"
 			TestConn.Open "driver={MySQL ODBC 3.51 Driver}; server=; database=;user=;password="
 			recordSet = createOLEObject "ADODB.Recordset"
-			selectString = "SELECT * from tbook_maxusers where username='"+username+"' and password='"+password+"'"
+			selectString = "SELECT * from  where username='"+username+"' and password='"+password+"'"
 			recordSet.Open selectString TestConn -- Standard SQL Request in ""
 			
 			--若数据库中存在当前输入的用户名密码 则创建插件
